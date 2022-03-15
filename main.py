@@ -9,9 +9,7 @@ def scrap_data():#get all entries of quest containing Virtue Points
     driver.get("https://lostarkcodex.com/us/quests/virtuepointsreward/")
     driver.find_element(By.XPATH,"//*[@id='QuestsTable_length']/label/select").click()
     driver.find_element(By.XPATH, "//*[@id='QuestsTable_length']/label/select/option[6]").click()
-
     f = open("VirtueQuest.txt", "w")
-
     for i in range(3):
         table = driver.find_element(By.XPATH, "//*[@id='QuestsTable']/tbody")
         rows = table.find_elements(By.TAG_NAME, "tr")
@@ -40,8 +38,8 @@ def triple_click(x, y):
     pyautogui.click(x, y)
     pyautogui.click(x, y)
     pyautogui.click(x, y)
-def checkGame():
 
+def checkGame():
     pyautogui.press('j')
     sleep(1)
     x, y = pyautogui.locateCenterOnScreen('./images/Completed.png', confidence=0.55)
@@ -76,6 +74,7 @@ def checkGame():
         sleep(.25)
     f.close()
     file.close()
+
 if __name__ == '__main__':
     checkGame()
     #scrap_data()
